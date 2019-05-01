@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "0.1.4" %}
+{% set version = "0.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 27f6231d6f1340cfad4a067a7e087670d09b7c9279142fdc88419ec93711c60f
+  sha256: c6ec735463098c405af25f97052024ca71483040285345ec9b3dadf27e482f52
 
 build:
   number: 0
