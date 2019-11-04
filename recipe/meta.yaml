@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "0.1.5" %}
+{% set version = "1.0.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,23 +7,22 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c6ec735463098c405af25f97052024ca71483040285345ec9b3dadf27e482f52
+  sha256: cd1c67602a5e8e918cc39a3d3eebf89986d8c7e1b3900b40b321500f23670ad7
 
 build:
   number: 0
   skip: true  # [win]
+  skip: true  # [osx]
+  skip: true  # [py2k]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
 requirements:
   host:
-    - jsmin
-    - libsass
     - pip
     - python
     - setuptools
   run:
-    - python
-    - enum34  # [py<34]
+    - python >=3.5
     - python-dateutil
     - lxml
     - numpy >=1.10
@@ -37,14 +36,16 @@ requirements:
     - ligo-segments
     - pygments
     - MarkupPy
-    - gwdetchar >=0.5.1
-    - gwpy >=0.14.2
+    - markdown
+    - gwdetchar >=1.0.0
+    - gwpy >=1.0.0
     - configparser  # [py<36]
 
 test:
   requires:
-    - pytest
-    - mock  # [py<30]
+    - pytest >=2.8,<3.7
+    - coverage
+    - flake8
   imports:
     - gwsumm
     - gwsumm.archive
@@ -83,9 +84,6 @@ test:
     - gw_summary_pipe --help
     - gwsumm-plot-guardian --help
     - gwsumm-plot-triggers --help
-    # check HTML files were built and installed
-    - test -f ${SP_DIR}/gwsumm/html/static/gwsumm.min.css
-    - test -f ${SP_DIR}/gwsumm/html/static/gwsumm.min.js
 
 about:
   home: https://github.com/gwpy/gwsumm
