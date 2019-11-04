@@ -12,7 +12,6 @@ source:
 build:
   number: 0
   skip: true  # [win]
-  skip: true  # [osx]
   skip: true  # [py2k]
   script: "{{ PYTHON }} -m pip install . --no-deps --ignore-installed --no-cache-dir -vvv"
 
@@ -21,6 +20,7 @@ requirements:
     - pip
     - python
     - setuptools
+    - fontconfig  # [osx]
   run:
     - python >=3.5
     - python-dateutil
