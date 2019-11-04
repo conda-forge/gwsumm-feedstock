@@ -35,6 +35,7 @@ requirements:
     - ligo-segments
     - pygments
     - MarkupPy
+    - markdown
     - gwdetchar >=1.0.0
     - gwpy >=1.0.0
     - configparser  # [py<36]
