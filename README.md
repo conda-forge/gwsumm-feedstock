@@ -3,16 +3,15 @@ About gwsumm
 
 Home: https://github.com/gwpy/gwsumm
 
-Package license: GPL-3.0
+Package license: GPL-3.0-or-later
 
 Feedstock license: BSD 3-Clause
 
-Summary: A python toolbox for Advanced LIGO detector characterisation
+Summary: Gravitational-wave interferometer summary information system
 
-This package provides a python toolbox widely used for Advanced
-LIGO detector characterisation and data quality. The tools contained
-within summarise and archive sundry facets of the performance of the
-LIGO instruments, and archive these data in a nested HTML structure.
+GWSumm is a python toolbox used by the LIGO Scientific Collaboration to
+summarise and archive sundry facets of the performance of the LIGO
+instruments, and archive these data in a nested HTML structure.
 
 
 Current build status
@@ -33,13 +32,6 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>linux_python2.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6562&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwsumm-feedstock?branchName=master&jobName=linux&configuration=linux_python2.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
               <td>linux_python3.6</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6562&branchName=master">
@@ -51,13 +43,6 @@ Current build status
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6562&branchName=master">
                   <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwsumm-feedstock?branchName=master&jobName=linux&configuration=linux_python3.7" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_python2.7</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=6562&branchName=master">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwsumm-feedstock?branchName=master&jobName=osx&configuration=osx_python2.7" alt="variant">
                 </a>
               </td>
             </tr><tr>
