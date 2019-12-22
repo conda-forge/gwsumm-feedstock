@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "1.0.1" %}
+{% set version = "1.0.2" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,11 +7,10 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "edde2b05baaa0b00d0d1a3f7621b6b97ff07d6efd20086ba23c30e29783f31e8"
+  sha256: "815b0db0d4b3b9258f9dea6b78eb61b245a9f0f3df084c7d5d5cb4d0aa0b6824"
 
 build:
   number: 0
-  skip: true  # [win or py<36]
   script: "{{ PYTHON }} -m pip install . -vv"
 
 requirements:
@@ -20,6 +19,7 @@ requirements:
     - python
     - setuptools
   run:
+    - python
     - astropy >=1.2.1
     - gwdatafind
     - gwdetchar >=1.0.0
@@ -31,9 +31,8 @@ requirements:
     - markdown
     - markuppy
     - matplotlib-base >=2.0.0
-    - numpy >=1.10
+    - numpy >=1.16
     - pygments
-    - python
     - python-dateutil
     - python-lal >=6.19.0
     - scipy >=1.2.0
