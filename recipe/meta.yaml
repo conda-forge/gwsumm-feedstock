@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "1.0.2" %}
+{% set version = "1.0.3" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,10 +7,10 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "815b0db0d4b3b9258f9dea6b78eb61b245a9f0f3df084c7d5d5cb4d0aa0b6824"
+  sha256: "9bd77ce264a97bbee4132648cbbf1c9d8ec3eb6d3e9fe6beb19464aee689a529"
 
 build:
-  number: 1
+  number: 0
   script: "{{ PYTHON }} -m pip install . -vv"
   skip: true  # [win]
 
