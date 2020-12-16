@@ -8,6 +8,9 @@ package:
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
   sha256: 6e3286cb106d778860d3213603dedde8259d763f5313f615d0443c47a1ed4a74
+  patches:
+    # Needed until the next release to resolve a circular import in setup.py
+    - 0001-Resolve-circular-import-in-setup.py.patch
 
 build:
   number: 0
