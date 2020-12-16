@@ -1,17 +1,17 @@
 {% set name = "gwsumm" %}
-{% set version = "1.0.3" %}
+{% set version = "2.0.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "9bd77ce264a97bbee4132648cbbf1c9d8ec3eb6d3e9fe6beb19464aee689a529"
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: 6e3286cb106d778860d3213603dedde8259d763f5313f615d0443c47a1ed4a74
 
 build:
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
   skip: true  # [win]
 
 requirements:
@@ -82,13 +82,13 @@ test:
     - gwsumm-plot-triggers --help
 
 about:
-  home: "https://github.com/gwpy/gwsumm"
-  doc_url: "https://gwsumm.readthedocs.io/en/latest/"
-  dev_url: "https://github.com/gwpy/gwsumm"
-  license: "GPL-3.0-or-later"
-  license_family: "GPL"
-  license_file: "LICENSE"
-  summary: "Gravitational-wave interferometer summary information system"
+  home: https://github.com/gwpy/gwsumm
+  doc_url: https://gwsumm.readthedocs.io/en/latest/
+  dev_url: https://github.com/gwpy/gwsumm
+  license: GPL-3.0-or-later
+  license_family: GPL
+  license_file: LICENSE
+  summary: Gravitational-wave interferometer summary information system
   description: |
     GWSumm is a python toolbox used by the LIGO Scientific Collaboration to
     summarise and archive sundry facets of the performance of the LIGO
