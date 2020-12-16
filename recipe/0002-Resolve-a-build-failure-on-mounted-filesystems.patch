@@ -1,0 +1,34 @@
+From 0b2adbe07681723fa3af6e605bc7a3526a76bd34 Mon Sep 17 00:00:00 2001
+From: Alex Urban <alexander.urban@ligo.org>
+Date: Wed, 16 Dec 2020 16:06:36 -0600
+Subject: [PATCH] Resolve a build failure on mounted filesystems
+
+---
+ gwsumm/plot/guardian/__main__.py | 4 +++-
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+diff --git a/gwsumm/plot/guardian/__main__.py b/gwsumm/plot/guardian/__main__.py
+index 68fc64c..4c06c6a 100644
+--- a/gwsumm/plot/guardian/__main__.py
++++ b/gwsumm/plot/guardian/__main__.py
+@@ -22,6 +22,7 @@
+ import argparse
+ import os
+ import re
++import shutil
+ import sys
+ 
+ from collections import OrderedDict
+@@ -200,7 +201,8 @@ def main(args=None):
+     LOGGER.info("Processing:")
+     tab.process(nproc=args.nproc)
+     plotfile = tab.plots[0].outputfile
+-    os.rename(plotfile, args.output_file)
++    shutil.copy(plotfile, args.output_file)
++    os.remove(plotfile)
+     LOGGER.info("Plot saved to {0.output_file}".format(args))
+ 
+     # crop and save archive
+-- 
+2.21.1 (Apple Git-122.3)
+

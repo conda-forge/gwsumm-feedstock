@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "1.0.3" %}
+{% set version = "2.0.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,40 +7,46 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: "9bd77ce264a97bbee4132648cbbf1c9d8ec3eb6d3e9fe6beb19464aee689a529"
+  sha256: 6e3286cb106d778860d3213603dedde8259d763f5313f615d0443c47a1ed4a74
+  patches:
+    # resolve build failures, remove after next version
+    - 0001-Resolve-circular-import-in-setup.py.patch
+    - 0002-Resolve-a-build-failure-on-mounted-filesystems.patch
 
 build:
   number: 0
+  noarch: python
   script: "{{ PYTHON }} -m pip install . -vv"
-  skip: true  # [win]
 
 requirements:
   host:
     - pip
-    - python
-    - setuptools
+    - python >=3.6
+    - setuptools >=30.3.0
   run:
-    - python
-    - astropy >=1.2.1
+    - python >=3.6
+    - astropy >=3.0.0
     - gwdatafind
-    - gwdetchar >=1.0.0
-    - gwpy >=1.0.0
+    - gwdetchar >=2.0.0
+    - gwpy >=2.0.0
     - gwtrigfind
-    - lscsoft-glue >=1.60.0
     - ligo-segments
+    - lscsoft-glue >=1.60.0
     - lxml
     - markdown
     - markuppy
-    - matplotlib-base >=2.0.0
+    - matplotlib-base >=3.1.0
     - numpy >=1.16
-    - pygments
+    - pygments >=2.7.0
     - python-dateutil
     - python-lal >=6.19.0
     - scipy >=1.2.0
 
 test:
   requires:
-    - pytest >=2.8,<3.7
+    - flake8
+    - pytest >=3.3.0
+    - pytest-cov >=2.4.0
   imports:
     - gwsumm
     - gwsumm.archive
@@ -69,17 +75,16 @@ test:
     - gwsumm.utils
   commands:
     # run unit tests (skip error on osx)
-    - python -m pytest --pyargs {{ name }}  # [not osx]
-    - python -m pytest --pyargs {{ name }} -k 'not test_finalize'  # [osx]
+    - python -m pytest --pyargs {{ name }}
     # check scripts run ok
-    - gw_summary --help
-    - gw_summary day --help
-    - gw_summary week --help
-    - gw_summary month --help
-    - gw_summary gps --help
-    - gw_summary_pipe --help
-    - gwsumm-plot-guardian --help
-    - gwsumm-plot-triggers --help
+    - python -m gwsumm --help
+    - python -m gwsumm day --help
+    - python -m gwsumm week --help
+    - python -m gwsumm month --help
+    - python -m gwsumm gps --help
+    - python -m gwsumm.batch --help
+    - python -m gwsumm.plot.guardian --help
+    - python -m gwsumm.plot.triggers --help
 
 about:
   home: "https://github.com/gwpy/gwsumm"
