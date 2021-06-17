@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "2.0.1" %}
+{% set version = "2.1.0" %}
 
 package:
   name: "{{ name|lower }}"
@@ -7,7 +7,7 @@ package:
 
 source:
   url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: c275b96994151879710ce6cfde1374af65300bd2f7fcee0b1c7608c6b47f79ee
+  sha256: d4958ed194fbc866bfa44e34e4026d2a97a7f65035b8113039bbe895078b1ad0
 
 build:
   number: 0
@@ -98,4 +98,7 @@ about:
 extra:
   recipe-maintainers:
     - alurban
+    - areeda
     - duncanmmacleod
+    - eagoetz
+    - robertbruntz
