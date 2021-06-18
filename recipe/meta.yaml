@@ -46,6 +46,7 @@ requirements:
 test:
   requires:
     - flake8
+    - pip
     - pytest >=3.3.0
     - pytest-cov >=2.4.0
   imports:
@@ -75,6 +76,8 @@ test:
     - gwsumm.units
     - gwsumm.utils
   commands:
+    # check requirements
+    - python -m pip check
     # run unit tests
     - python -m pytest --pyargs {{ name }}
     # check scripts run ok
