@@ -13,6 +13,11 @@ build:
   number: 0
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
+  entry_points:
+    - gw_summary = gwsumm.__main__:main
+    - gw_summary_pipe = gwsumm.batch:main
+    - gwsumm-plot-guardian = gwsumm.plot.guardian.__main__:main
+    - gwsumm-plot-triggers = gwsumm.plot.triggers.__main__:main
 
 requirements:
   host:
@@ -81,6 +86,11 @@ test:
     - python -m gwsumm.batch --help
     - python -m gwsumm.plot.guardian --help
     - python -m gwsumm.plot.triggers --help
+    # check entry points
+    - gw_summary --help
+    - gw_summary_pipe --help
+    - gwsumm-plot-guardian --help
+    - gwsumm-plot-triggers --help
 
 about:
   home: https://github.com/gwpy/gwsumm
