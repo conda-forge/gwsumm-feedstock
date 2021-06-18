@@ -1,18 +1,27 @@
 {% set name = "gwsumm" %}
-{% set version = "2.0.1" %}
+{% set version = "2.1.0" %}
 
 package:
-  name: "{{ name|lower }}"
-  version: "{{ version }}"
+  name: {{ name|lower }}
+  version: {{ version }}
 
 source:
-  url: "https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz"
-  sha256: c275b96994151879710ce6cfde1374af65300bd2f7fcee0b1c7608c6b47f79ee
+  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  sha256: d4958ed194fbc866bfa44e34e4026d2a97a7f65035b8113039bbe895078b1ad0
+  patches:
+    # remove lalsuite from install_requires,
+    # we handle the subpackages separately here
+    - no-lalsuite.patch
 
 build:
   number: 0
   noarch: python
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
+  entry_points:
+    - gw_summary = gwsumm.__main__:main
+    - gw_summary_pipe = gwsumm.batch:main
+    - gwsumm-plot-guardian = gwsumm.plot.guardian.__main__:main
+    - gwsumm-plot-triggers = gwsumm.plot.triggers.__main__:main
 
 requirements:
   host:
@@ -41,6 +50,7 @@ requirements:
 test:
   requires:
     - flake8
+    - pip
     - pytest >=3.3.0
     - pytest-cov >=2.4.0
   imports:
@@ -70,7 +80,9 @@ test:
     - gwsumm.units
     - gwsumm.utils
   commands:
-    # run unit tests (skip error on osx)
+    # check requirements
+    - python -m pip check
+    # run unit tests
     - python -m pytest --pyargs {{ name }}
     # check scripts run ok
     - python -m gwsumm --help
@@ -81,15 +93,20 @@ test:
     - python -m gwsumm.batch --help
     - python -m gwsumm.plot.guardian --help
     - python -m gwsumm.plot.triggers --help
+    # check entry points
+    - gw_summary --help
+    - gw_summary_pipe --help
+    - gwsumm-plot-guardian --help
+    - gwsumm-plot-triggers --help
 
 about:
-  home: "https://github.com/gwpy/gwsumm"
-  doc_url: "https://gwsumm.readthedocs.io/en/latest/"
-  dev_url: "https://github.com/gwpy/gwsumm"
-  license: "GPL-3.0-or-later"
-  license_family: "GPL"
-  license_file: "LICENSE"
-  summary: "Gravitational-wave interferometer summary information system"
+  home: https://github.com/gwpy/gwsumm
+  doc_url: https://gwsumm.readthedocs.io/en/latest/
+  dev_url: https://github.com/gwpy/gwsumm
+  license: GPL-3.0-or-later
+  license_family: GPL
+  license_file: LICENSE
+  summary: Gravitational-wave interferometer summary information system
   description: |
     GWSumm is a python toolbox used by the LIGO Scientific Collaboration to
     summarise and archive sundry facets of the performance of the LIGO
@@ -98,4 +115,7 @@ about:
 extra:
   recipe-maintainers:
     - alurban
+    - areeda
     - duncanmmacleod
+    - eagoetz
+    - robertbruntz
