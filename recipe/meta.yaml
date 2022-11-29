@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "2.1.0" %}
+{% set version = "2.1.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d4958ed194fbc866bfa44e34e4026d2a97a7f65035b8113039bbe895078b1ad0
+  sha256: 994bcdcf395980f5548fe6c6c7332506315aa46a506338e74cc8faf4831e7eaa
   patches:
     # remove lalsuite from install_requires,
     # we handle the subpackages separately here
@@ -31,10 +31,11 @@ requirements:
   run:
     - python >=3.6
     - astropy >=3.0.0
-    - gwdatafind
+    - gwdatafind >=1.1.1
     - gwdetchar >=2.0.0
-    - gwpy >=2.0.0
+    - gwpy >=3.0.0
     - gwtrigfind
+    - lalsuite
     - ligo-segments
     - lscsoft-glue >=1.60.0
     - lxml
@@ -45,6 +46,7 @@ requirements:
     - pygments >=2.7.0
     - python-dateutil
     - python-lal >=6.19.0
+    - python-ligo-lw
     - scipy >=1.2.0
 
 test:
