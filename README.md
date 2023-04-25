@@ -1,11 +1,11 @@
-About gwsumm
-============
+About gwsumm-feedstock
+======================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwsumm-feedstock-eg-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/gwpy/gwsumm
 
 Package license: GPL-3.0-or-later
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwsumm-feedstock-eg-feedstock/blob/main/LICENSE.txt)
 
 Summary: Gravitational-wave interferometer summary information system
 
