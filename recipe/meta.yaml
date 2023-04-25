@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "2.1.3" %}
+{% set version = "2.1.4" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 629b93d8bca75df297d9f86d1ce4b4de93bd4a79c3611ea38b2efea4752d0ac3
+  sha256: bee5b3e5219d6c71e08928f221d2377ed069367667bf417c34c22067e8cb4795
   patches:
     # remove lalsuite from install_requires,
     # we handle the subpackages separately here
