@@ -156,5 +156,6 @@ Feedstock Maintainers
 * [@areeda](https://github.com/areeda/)
 * [@duncanmmacleod](https://github.com/duncanmmacleod/)
 * [@eagoetz](https://github.com/eagoetz/)
+* [@iaraota](https://github.com/iaraota/)
 * [@robertbruntz](https://github.com/robertbruntz/)
 
