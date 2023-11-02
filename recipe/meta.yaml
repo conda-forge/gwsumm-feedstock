@@ -8,10 +8,6 @@ package:
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 287422076c18a72ab05660fe3aa5137ddd75528abd0b16ec898bd97ceba49e8c
-  patches:
-    # remove lalsuite from install_requires,
-    # we handle the subpackages separately here
-    - no-lalsuite.patch
 
 build:
   number: 0
