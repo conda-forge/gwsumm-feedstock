@@ -9,9 +9,15 @@ source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 287422076c18a72ab05660fe3aa5137ddd75528abd0b16ec898bd97ceba49e8c
   patches:
-    # remove lalsuite from install_requires,
-    # we handle the subpackages separately here
-    - no-lalsuite.patch
+    # see https://github.com/gwpy/gwsumm/compare/2.2.0...duncanmmacleod:gwsumm:conda-patches?expand=1
+    # to update:
+    #   - checkout the duncanmmacleod/gwsumm@conda-patches branch
+    #   - fetch the latest tag from gwpy/gwsumm
+    #   - rebase against the new tag: `git rebase <tag>`
+    #   - resolve any conflicts
+    #   - if conflicts, or any new patches needed,
+    #     (re)create the new patch files: `git format-patch <tag>`
+    - 0001-pyproject.toml-remove-lalsuite-from-dependencies.patch
 
 build:
   number: 0
@@ -35,7 +41,6 @@ requirements:
     - gwdetchar >=2.0.0
     - gwpy >=3.0.0
     - gwtrigfind
-    - lalsuite
     - ligo-segments
     - lscsoft-glue >=1.60.0
     - lxml
