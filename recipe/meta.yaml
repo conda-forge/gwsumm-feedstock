@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "2.1.7" %}
+{% set version = "2.2.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,11 +7,17 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: d4b46cc6a700760ebc176b798eaad9386583fedf7b167964fabb2b5678796dab
+  sha256: 287422076c18a72ab05660fe3aa5137ddd75528abd0b16ec898bd97ceba49e8c
   patches:
-    # remove lalsuite from install_requires,
-    # we handle the subpackages separately here
-    - no-lalsuite.patch
+    # see https://github.com/gwpy/gwsumm/compare/2.2.0...duncanmmacleod:gwsumm:conda-patches?expand=1
+    # to update:
+    #   - checkout the duncanmmacleod/gwsumm@conda-patches branch
+    #   - fetch the latest tag from gwpy/gwsumm
+    #   - rebase against the new tag: `git rebase <tag>`
+    #   - resolve any conflicts
+    #   - if conflicts, or any new patches needed,
+    #     (re)create the new patch files: `git format-patch <tag>`
+    - 0001-pyproject.toml-remove-lalsuite-from-dependencies.patch
 
 build:
   number: 0
@@ -26,22 +32,21 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.6
+    - python >=3.9
     - setuptools >=30.3.0
   run:
-    - python >=3.6
+    - python >=3.9
     - astropy >=3.0.0
     - gwdatafind >=1.1.1
     - gwdetchar >=2.0.0
     - gwpy >=3.0.0
     - gwtrigfind
-    - lalsuite
     - ligo-segments
     - lscsoft-glue >=1.60.0
     - lxml
     - markdown
     - markuppy
-    - matplotlib-base >=3.1.0
+    - matplotlib-base >=3.5.0
     - numpy >=1.16
     - pygments >=2.7.0
     - python-dateutil
