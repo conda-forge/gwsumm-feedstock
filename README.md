@@ -1,7 +1,7 @@
 About gwsumm-feedstock
 ======================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwsumm-feedstock-eg-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwsumm-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/gwpy/gwsumm
 
@@ -25,7 +25,7 @@ Current build status
 <table><tr><td>All platforms:</td>
     <td>
       <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwsumm-feedstock-eg-feedstock?branchName=main">
+        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwsumm-feedstock?branchName=main">
       </a>
     </td>
   </tr>
