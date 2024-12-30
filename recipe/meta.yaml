@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: 80f56e9c4bb785fb469faba4e0aa4d9ca9c00c50ba04abc182b7b245f4bc1bd7
   patches:
     # see https://github.com/gwpy/gwsumm/compare/2.2.0...duncanmmacleod:gwsumm:conda-patches?expand=1
@@ -20,7 +20,7 @@ source:
     - 0001-pyproject.toml-remove-lalsuite-from-dependencies.patch
 
 build:
-  number: 1
+  number: 2
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -32,10 +32,10 @@ build:
 requirements:
   host:
     - pip
-    - python >=3.9
+    - python {{ python_min }}
     - setuptools >=30.3.0
   run:
-    - python >=3.9
+    - python >={{ python_min }}
     - astropy-base >=3.0.0
     - gwdatafind >=1.1.1
     - gwdetchar >=2.0.0
@@ -60,6 +60,7 @@ test:
     - pip
     - pytest >=3.3.0
     - pytest-cov >=2.4.0
+    - python {{ python_min }}
   imports:
     - gwsumm
     - gwsumm.archive
