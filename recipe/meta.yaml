@@ -35,10 +35,9 @@ requirements:
     - python {{ python_min }}
     - setuptools >=30.3.0
   run:
-    - python >={{ python_min }}
     - astropy-base >=3.0.0
     - gwdatafind >=1.1.1
-    - gwdetchar >=2.0.0
+    - gwdetchar >=2.2.7
     - gwpy >=3.0.0,<=3.0.8
     - gwtrigfind
     - ligo-segments
@@ -49,6 +48,7 @@ requirements:
     - matplotlib-base >=3.5.0
     - numpy >=1.16,<2.0
     - pygments >=2.7.0
+    - python >={{ python_min }}
     - python-dateutil
     - python-lal >=6.19.0
     - python-ligo-lw
