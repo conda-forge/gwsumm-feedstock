@@ -33,26 +33,25 @@ requirements:
   host:
     - pip
     - python {{ python_min }}
-    - setuptools >=30.3.0
+    - setuptools >=61
   run:
-    - astropy-base >=3.0.0
+    - astropy >=3.0.0
     - gwdatafind >=1.1.1
     - gwdetchar >=2.2.7
-    - gwpy >=3.0.0,<=3.0.8
+    - gwpy >=3.0.9
     - gwtrigfind
-    - ligo-segments
     - lscsoft-glue >=1.60.0
     - lxml
     - markdown
     - markuppy
-    - matplotlib-base >=3.5.0
-    - numpy >=1.16,<2.0
+    - matplotlib >=3.5.0
+    - numpy >=1.16
     - pygments >=2.7.0
     - python >={{ python_min }}
     - python-dateutil
     - python-lal >=6.19.0
     - python-ligo-lw
-    - scipy >=1.2.0,<1.14
+    - scipy >=1.2.0
 
 test:
   requires:
