@@ -1,6 +1,6 @@
-From 8f935b53fa7b22c1522ec6236e3a0ab7e78bf0d5 Mon Sep 17 00:00:00 2001
-From: "duncan.macleod" <duncan.macleod@ligo.org>
-Date: Fri, 3 Nov 2023 09:16:33 +0000
+From 0874e5fb0a2e62e0d3e5c77ba6a888f786e95b32 Mon Sep 17 00:00:00 2001
+From: Evan Goetz <evan.goetz@ligo.org>
+Date: Tue, 29 Apr 2025 15:54:59 -0700
 Subject: [PATCH] pyproject.toml: remove lalsuite from dependencies
 
 the component libraries we actually need are specified individually in the conda recipe
@@ -9,17 +9,17 @@ the component libraries we actually need are specified individually in the conda
  1 file changed, 1 deletion(-)
 
 diff --git a/pyproject.toml b/pyproject.toml
-index ca47d93..aacb34f 100644
+index bb3ffc7..274d1f8 100644
 --- a/pyproject.toml
 +++ b/pyproject.toml
 @@ -42,7 +42,6 @@ dependencies = [
-   "gwdetchar >=2.0.0",
-   "gwpy >=2.0.0",
+   "gwdetchar >=2.2.7",
+   "gwpy >=3.0.9",
    "gwtrigfind",
 -  "lalsuite",
-   "ligo-segments",
    "lscsoft-glue >=1.60.0",
    "lxml",
+   "markdown",
 -- 
-2.41.0
+2.49.0
 
