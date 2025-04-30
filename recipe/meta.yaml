@@ -20,7 +20,7 @@ source:
     - 0001-pyproject.toml-remove-lalsuite-from-dependencies.patch
 
 build:
-  number: 0
+  number: 1
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv
   entry_points:
@@ -35,7 +35,7 @@ requirements:
     - python {{ python_min }}
     - setuptools >=61
   run:
-    - astropy >=3.0.0
+    - astropy-base >=3.0.0
     - gwdatafind >=1.1.1
     - gwdetchar >=2.2.7
     - gwpy >=3.0.9
@@ -45,7 +45,7 @@ requirements:
     - lxml
     - markdown
     - markuppy
-    - matplotlib >=3.5.0
+    - matplotlib-base >=3.5.0
     - numpy >=1.16
     - pygments >=2.7.0
     - python >={{ python_min }}
