@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "2.3.2" %}
+{% set version = "2.3.3" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 4555ff05bdb83cd756ba69b081024a4e1ed5a34e5bb700867511c0afa7f1d442
+  sha256: 6d857aedb224045c921e9dc556555d34d53af326e21aa408d232de3b32225e3d
   patches:
     # see https://github.com/gwpy/gwsumm/compare/2.2.0...duncanmmacleod:gwsumm:conda-patches?expand=1
     # to update:
