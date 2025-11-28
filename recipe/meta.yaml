@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "2.3.3" %}
+{% set version = "2.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 6d857aedb224045c921e9dc556555d34d53af326e21aa408d232de3b32225e3d
+  sha256: f34fa0d5a342045d384f59df52c0036e3a185cdc16b15a42b3620885d332ad57
   patches:
     # see https://github.com/gwpy/gwsumm/compare/2.2.0...duncanmmacleod:gwsumm:conda-patches?expand=1
     # to update:
@@ -37,10 +37,10 @@ requirements:
   run:
     - astropy-base >=3.0.0
     - gwdatafind >=1.1.1
-    - gwdetchar >=2.2.7
+    - gwdetchar >=2.3.2
     - gwpy >=3.0.9
     - gwtrigfind
-    - ligo-segments
+    - igwn-ligolw
     - lscsoft-glue >=1.60.0
     - lxml
     - markdown
@@ -51,7 +51,6 @@ requirements:
     - python >={{ python_min }}
     - python-dateutil
     - python-lal >=6.19.0
-    - python-ligo-lw
     - scipy >=1.2.0
 
 test:
@@ -122,9 +121,7 @@ about:
 
 extra:
   recipe-maintainers:
-    - alurban
     - areeda
     - duncanmmacleod
     - eagoetz
     - robertbruntz
-    - iaraota
