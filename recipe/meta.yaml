@@ -45,7 +45,7 @@ requirements:
     - lxml
     - markdown
     - markuppy
-    - matplotlib-base >=3.5
+    - matplotlib-base >=3.9
     - numpy >=1.16
     - pygments >=2.7.0
     - python >={{ python_min }}
