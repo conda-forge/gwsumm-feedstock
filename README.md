@@ -1,7 +1,7 @@
 About gwsumm-feedstock
 ======================
 
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwsumm-feedstock-eg-feedstock/blob/main/LICENSE.txt)
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/gwsumm-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/gwpy/gwsumm
 
@@ -22,10 +22,11 @@ Current build status
 ====================
 
 
-<table><tr><td>All platforms:</td>
+<table><tr>
+    <td>All platforms:</td>
     <td>
-      <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=None&branchName=main">
-        <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/gwsumm-feedstock-eg-feedstock?branchName=main">
+      <a href="https://github.com/conda-forge/gwsumm-feedstock/actions/workflows/conda-build.yml">
+        <img src="https://github.com/conda-forge/gwsumm-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
       </a>
     </td>
   </tr>
@@ -152,10 +153,8 @@ In order to produce a uniquely identifiable distribution:
 Feedstock Maintainers
 =====================
 
-* [@alurban](https://github.com/alurban/)
 * [@areeda](https://github.com/areeda/)
 * [@duncanmmacleod](https://github.com/duncanmmacleod/)
 * [@eagoetz](https://github.com/eagoetz/)
-* [@iaraota](https://github.com/iaraota/)
 * [@robertbruntz](https://github.com/robertbruntz/)
 
