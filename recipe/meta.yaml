@@ -1,5 +1,5 @@
 {% set name = "gwsumm" %}
-{% set version = "2.4.1" %}
+{% set version = "2.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 1531c9f62d753bb6482fb44efbaa2a0f7f596c979563bc046abb0fffaa0790b5
+  sha256: 0fcb23eb3e6c7a3030407d599a0b16e9717223421f5ef5d3a25afd3aa03c1dd3
   patches:
     # see https://github.com/gwpy/gwsumm/compare/2.2.0...duncanmmacleod:gwsumm:conda-patches?expand=1
     # to update:
@@ -35,7 +35,7 @@ requirements:
     - python {{ python_min }}
     - setuptools >=77.0.3
   run:
-    - astropy-base >=3.0.0
+    - astropy-base >=5.0.0
     - gwdatafind >=1.1.1
     - gwdetchar >=2.3.2
     - gwpy >=3.0.9
@@ -46,12 +46,12 @@ requirements:
     - markdown
     - markuppy
     - matplotlib-base >=3.9
-    - numpy >=1.16
+    - numpy >=1.19.5
     - pygments >=2.7.0
     - python >={{ python_min }}
     - python-dateutil
     - python-lal >=6.19.0
-    - scipy >=1.2.0
+    - scipy >=1.6.0
 
 test:
   requires:
